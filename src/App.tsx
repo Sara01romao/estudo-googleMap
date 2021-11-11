@@ -7,7 +7,7 @@ import Busca from './components/Busca';
 function App() {
   return (
     <div className="containerHome">
-        <Busca/>
+         <Busca/>
          <MapPage/> 
     </div>
    

@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { GoogleMap, useJsApiLoader,LoadScript, Marker } from '@react-google-maps/api';
+
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import './MapPage.css'
 
 const containerStyle = {
@@ -19,25 +19,16 @@ const MapPage = () =>{
     googleMapsApiKey: "AIzaSyAEHaxFNZCH18T-2lMsiFiEOjl1RCuWB9g"
   })
 
-  const [map, setMap] = useState(null)
+ 
 
-  const onLoad = useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
-
-  const onUnmount = useCallback(function callback(map) {
-    setMap(null)
-  }, [])
+ 
 
   return isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={30}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
+        zoom={15}
+        
       >
         <Marker position={center} />
       </GoogleMap>
